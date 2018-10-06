@@ -1,6 +1,8 @@
 # Jekyll Maparoni plugin
 
-A Jekyll plugin to generate a Maparoni (GeoJSON) collection of your Jekyll posts
+A Jekyll plugin to generate a Maparoni-compatible GeoJSON collection of your Jekyll posts
+
+**NOTE: This plugin is currently under active development, so use with caution.**
 
 TODO: Add build + gem version badges
 
@@ -31,7 +33,7 @@ location:
   longitude: 151.274724
 ```
 
-The plugin will then generate a Maparoni collection `/posts.geojson`.
+The plugin will then generate a Maparoni-compatible GeoJSON collection `/posts.geojson`.
 
 
 ## Development

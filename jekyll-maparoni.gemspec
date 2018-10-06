@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Adrian Schoenig"]
   spec.email         = ["adrian.schoenig@gmail.com"]
 
-  spec.summary       = "A Jekyll plugin to generate a Maparoni (GeoJSON) collection of your Jekyll posts"
+  spec.summary       = "A Jekyll plugin to generate a Maparoni-compatible GeoJSON collection of your Jekyll posts"
   spec.homepage      = "https://gitlab.com/maparoni/jekyll-maparoni"
   spec.license       = "MIT"
 
