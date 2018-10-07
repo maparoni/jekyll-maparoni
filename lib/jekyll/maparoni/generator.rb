@@ -13,7 +13,7 @@ module Jekyll
           
           # Provide access to the markdown of the posts
           collection.docs.each do |post|
-            post.data['raw_content'] = post.content
+            post.data['raw_content'] = liquidify(post)
           end
 
           @site.pages << make_geojson(name, collection.metadata["title"])
@@ -21,6 +21,13 @@ module Jekyll
       end
 
       private
+
+      def liquidify(post)
+        info = {
+          registers: { site: @site, page: post.to_liquid },
+        }
+        @site.liquid_renderer.file(post.path).parse(post.content).render!(@site.site_payload, info)
+      end
 
       def make_geojson(collection, title)
         source_path = File.expand_path "maparoni.geojson", __dir__
