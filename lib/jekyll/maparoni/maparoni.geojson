@@ -20,8 +20,5 @@
       }
     }{% unless forloop.last %},{% endunless %}
   {%- endfor %}
-  ],
-  "maparoni": {
-    "name": "{{ page.label }}"
-  }
+  ]{% if page. maparoni %}, "maparoni": {{ page.maparoni | jsonify }}{% endif %}
 }

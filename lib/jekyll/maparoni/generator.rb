@@ -16,7 +16,7 @@ module Jekyll
             post.data['raw_content'] = liquidify(post)
           end
 
-          @site.pages << make_geojson(name, collection.metadata["title"])
+          @site.pages << make_geojson(name, collection.metadata)
         end
       end
 
@@ -29,7 +29,7 @@ module Jekyll
         @site.liquid_renderer.file(post.path).parse(post.content).render!(@site.site_payload, info)
       end
 
-      def make_geojson(collection, title)
+      def make_geojson(collection, metadata)
         source_path = File.expand_path "maparoni.geojson", __dir__
         template = File.read(source_path)
 
@@ -37,7 +37,8 @@ module Jekyll
           file.content = template
           file.data["layout"] = nil
           file.data["collection"] = collection
-          file.data["label"] = title # Don't use ["title"] or it might show up in the navigation!
+          file.data["label"] = metadata["title"] # Don't use data["title"] or it might show up in the navigation!
+          file.data["maparoni"] = metadata["maparoni"]
           file
         end
       end
