@@ -13,12 +13,14 @@
       },
       "properties": {
         "name": "{{ post.title }}",
-      {%- if post.location.pin-letter %}
-        "maparoni-pin-letter": "{{ post.location.pin-letter }}",
+      {%- if post.maparoni %}
+      {%- for maparone in post.maparoni %}
+        "{{ maparone[0] }}": {{ maparone[1] | jsonify }},
+      {%- endfor %}
       {%- endif %}
         "maparoni-note": {{ post.raw_content | jsonify }}
       }
     }{% unless forloop.last %},{% endunless %}
   {%- endfor %}
-  ]{% if page. maparoni %}, "maparoni": {{ page.maparoni | jsonify }}{% endif %}
+  ]{% if page.maparoni %}, "maparoni": {{ page.maparoni | jsonify }}{% endif %}
 }
