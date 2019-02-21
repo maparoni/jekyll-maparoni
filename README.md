@@ -29,7 +29,7 @@ plugins:
 
 First, add location information to your posts' YAML Front-matter:
 
-```
+```yml
 location:
   latitude: -33.896103
   longitude: 151.274724
@@ -46,7 +46,7 @@ have access to the `name`, `description`, `url` and `has_schema?` properties.
 For example, assuming that you keep the `.geosub` files in a `geosubs/` folder,
 add the following to your `_config.yml`:
 
-```
+```yml
 defaults:
   - scope:
       path: "geosubs"
@@ -56,7 +56,7 @@ defaults:
 
 And then you can load and link the files as follows:
 
-```
+```liquid
 {% assign geosubs = site.static_files | where: "geosub", true %}
 {% for sub in geosubs %}
 
