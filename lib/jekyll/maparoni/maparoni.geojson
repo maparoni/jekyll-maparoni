@@ -14,7 +14,7 @@
       },
       "properties": {
         "name": "{{ post.title }}",
-        "url": {{ post.url | absolute_url | jsonify}}
+        "url": {{ post.url | absolute_url | jsonify}},
       {%- if post.maparoni %}
       {%- for maparone in post.maparoni %}
         "{{ maparone[0] }}": {{ maparone[1] | jsonify }},

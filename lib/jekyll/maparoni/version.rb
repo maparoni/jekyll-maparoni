@@ -1,5 +1,5 @@
 module Jekyll
   module Maparoni
-    VERSION = "0.1.7"
+    VERSION = "0.1.8"
   end
 end
