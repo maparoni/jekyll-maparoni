@@ -40,6 +40,14 @@ module Jekyll
       def url
         @json["url"]
       end
+
+      def source_html
+        "<a href=\"#{@json["source"]["url"]}\">#{@json["source"]["name"]}</a>"
+      end
+
+      def source_markdown
+        "[#{@json["source"]["name"]}](#{@json["source"]["url"]})"
+      end
     end
 
     def maparoni_geosub(file)
