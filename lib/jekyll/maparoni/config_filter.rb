@@ -25,6 +25,18 @@ module Jekyll
         !@json["config"]["schemas"].nil?
       end
 
+      def has_views?
+        !@json["config"]["views"].nil?
+      end
+
+      def schemas_count
+        @json["config"]["schemas"].nil? ? 0 : @json["config"]["schemas"].count
+      end
+
+      def views_count
+        @json["config"]["views"].nil? ? 0 : @json["config"]["views"].count
+      end
+
       def url
         @json["url"]
       end
