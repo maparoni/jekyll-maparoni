@@ -17,6 +17,10 @@ module Jekyll
         @json["config"]["name"]
       end
 
+      def emoji
+        @json["config"]["emoji"]
+      end
+
       def description
         @json["config"]["note"]
       end
