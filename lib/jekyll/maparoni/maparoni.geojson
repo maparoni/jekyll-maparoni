@@ -20,7 +20,7 @@
         "{{ maparone[0] }}": {{ maparone[1] | jsonify }},
       {%- endfor %}
       {%- endif %}
-        "maparoni-note": {{ post.raw_content | jsonify }}
+        "maparoni-note": {{ post.raw_content | strip_html | jsonify }}
       }
     }{% unless forloop.last %},{% endunless %}
   {%- endfor %}
