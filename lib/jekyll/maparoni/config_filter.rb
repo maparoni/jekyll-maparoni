@@ -13,32 +13,36 @@ module Jekyll
         @json
       end
 
+      def config
+        @json["config"]
+      end
+
       def name
-        @json["config"]["name"]
+        config["name"]
       end
 
       def emoji
-        @json["config"]["emoji"]
+        config["emoji"]
       end
 
       def description
-        @json["config"]["note"]
+        config["note"]
       end
 
       def has_schemas?
-        !@json["config"]["schemas"].nil?
+        !config["schemas"].nil?
       end
 
       def has_views?
-        !@json["config"]["views"].nil?
+        !config["views"].nil?
       end
 
       def schemas_count
-        @json["config"]["schemas"].nil? ? 0 : @json["config"]["schemas"].count
+        config["schemas"].nil? ? 0 : config["schemas"].count
       end
 
       def views_count
-        @json["config"]["views"].nil? ? 0 : @json["config"]["views"].count
+        config["views"].nil? ? 0 : config["views"].count
       end
 
       def url
@@ -59,4 +63,54 @@ module Jekyll
       MaparoniGeoSubDrop.new(path)
     end
   end
+
+  module MaparoniCollectionFilter
+    class MaparoniCollectionDrop < Liquid::Drop
+      def initialize(path)
+        @json = JSON.parse(File.read(path))
+      end
+
+      def json
+        @json
+      end
+
+      def config
+        @json["maparoni"]
+      end
+
+      def name
+        config["name"]
+      end
+
+      def emoji
+        config["emoji"]
+      end
+
+      def description
+        config["note"]
+      end
+
+      def has_schemas?
+        !config["schemas"].nil?
+      end
+
+      def has_views?
+        !config["views"].nil?
+      end
+
+      def schemas_count
+        config["schemas"].nil? ? 0 : config["schemas"].count
+      end
+
+      def views_count
+        config["views"].nil? ? 0 : config["views"].count
+      end
+    end
+
+    def maparoni_collection(file)
+      path = @context.registers[:site].source + file.path
+      MaparoniCollectionDrop.new(path)
+    end
+  end
+
 end

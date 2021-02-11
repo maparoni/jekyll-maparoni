@@ -37,11 +37,11 @@ location:
 
 The plugin will then generate a Maparoni-compatible GeoJSON collection `/posts.geojson`.
 
-### Reading Maparoni GeoSubs
+### Reading Maparoni Collections and GeoSubs
 
-This plugin also includes a `maparoni_geosub` filter for displaying information 
-from Maparoni GeoSub files. Pass this filter a Jekyll static file and you then 
-have access to the `name`, `description`, `url` and `has_schema?` properties.
+This plugin also includes `maparoni_collection` and `maparoni_geosub` filter for displaying 
+information from Maparoni's configuration of `.geojson` and `.geosub` files. Pass these 
+filters a Jekyll static file and you then have access to properties like `name`, `emoji`, `description`,  `has_schema?` or `url`  (`.geosub` only, that one).
 
 For example, assuming that you keep the `.geosub` files in a `geosubs/` folder,
 add the following to your `_config.yml`:
