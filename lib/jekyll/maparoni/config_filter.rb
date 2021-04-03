@@ -46,7 +46,11 @@ module Jekyll
       end
 
       def url
-        @json["url"]
+        @json["url"].nil? ? json["request"]["url"] : @json["url"]
+      end
+
+      def format
+        @json["importMode"].nil? ? "GeoJSON" : @json["importMode"]["type"]
       end
 
       def source_html
