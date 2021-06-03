@@ -4,6 +4,7 @@
   {%- assign posts = site[page.collection] | where_exp: "post", "post.location != nil" -%}
   {%- for post in posts %}
     {
+      "type": "Feature",
       "id": {{ post.url | jsonify }},
       "geometry": {
         "coordinates": [
