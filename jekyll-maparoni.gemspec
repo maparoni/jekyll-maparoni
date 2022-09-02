@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "jekyll-maparoni"
   spec.version       = Jekyll::Maparoni::VERSION
   spec.authors       = ["Adrian Schoenig"]
-  spec.email         = ["adrian.schoenig@gmail.com"]
+  spec.email         = ["adrian@schoenig.me"]
 
   spec.summary       = "A Jekyll plugin to generate a Maparoni-compatible GeoJSON collection of your Jekyll posts"
-  spec.homepage      = "https://gitlab.com/maparoni/jekyll-maparoni"
+  spec.homepage      = "https://github.com/maparoni/jekyll-maparoni"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
